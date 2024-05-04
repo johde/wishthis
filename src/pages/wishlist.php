@@ -94,6 +94,9 @@ $page->bodyEnd();
 ?>
 
 <!-- Wishlist: Request wishes -->
+<?php
+if(defined('HIDE_HIDE_REQUEST_BUTTON') && true === HIDE_HIDE_REQUEST_BUTTON) {
+?>
 <div class="ui tiny modal wishlist-request-wishes-notification-sent">
     <div class="header">
         <?= __('Request more wishes') ?>
@@ -124,3 +127,5 @@ $page->bodyEnd();
         </div>
     </div>
 </div>
+<?php
+}
