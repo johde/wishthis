@@ -58,3 +58,5 @@ define('PLAUSIBLE', false);
  * Miscellaneous
  */
 define('DISABLE_USER_REGISTRATION', false);
+define('HIDE_FULLFILED_WISHES', false);
+define('HIDE_HIDE_REQUEST_BUTTON', false);
