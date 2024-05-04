@@ -131,8 +131,12 @@ class Wishlist
         $wish_status = ' AND (
                 `wishes`.`status` IS NULL
             OR (
-                    `wishes`.`status` != "' . Wish::STATUS_UNAVAILABLE . '"
-                AND `wishes`.`status` != "' . Wish::STATUS_FULFILLED . '"
+                    `wishes`.`status` != "' . Wish::STATUS_UNAVAILABLE;
+            if(defined('HIDE_FULLFILED_WISHES') && true === HIDE_FULLFILED_WISHES) {
+                $wish_status .= '"
+                AND `wishes`.`status` != "' . Wish::STATUS_FULFILLED;
+            }
+            $wish_status .= '"
                 AND `wishes`.`status`  < unix_timestamp(CURRENT_TIMESTAMP - INTERVAL ' . Wish::STATUS_TEMPORARY_MINUTES . ' MINUTE)
             )
         )';
